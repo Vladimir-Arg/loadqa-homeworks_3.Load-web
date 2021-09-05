@@ -1,23 +1,27 @@
 version: "3.7"
-networks:
-  load:
+# networks:
+#   load:
 
 services:
   web:
-    image: php:7.2-apache
-    environment:
-      - ALLOW_OVERRIDE=true
-    ports:
-      - "80:80"
-    links:
+    container_name: cinema_web
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    depends_on: 
       - db
+    # environment:
+    #   - ALLOW_OVERRIDE=true
     volumes:
       - ./www:/var/www/html/
-    networks:
-      - load
+    ports:
+      - "8000:80"
+    # networks:
+    #   - load
 
 
   db:
+    container_name: cinema_db
     image: mariadb
     restart: always
     healthcheck:
@@ -32,7 +36,18 @@ services:
       MYSQL_PASSWORD: test
       MYSQL_DATABASE: database
     ports:
-      - "8889:3306"
-    networks:
-      - load
-
+      - "9906:3306"
+    # networks:
+    #   - load
+  phpmyadmin:
+    container_name: cinema_phpadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+    ports:
+      - '8081:80'
+    # networks:
+    #   - load
