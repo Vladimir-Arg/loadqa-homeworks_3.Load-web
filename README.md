@@ -21,7 +21,3 @@
 После запуска 3 контейнеров можно перейти на сайт в барузере по адресу http://localhost:8000
 Для доступа к панели администратоар сайта http://localhost:8000/admin
 Для доступа к phpadmin http://localhost:8081
-
-
-подключиться к инстансу mariadb pass: test
-mysql -u admin -p -P 8889 -D database -h 0.0.0.0
