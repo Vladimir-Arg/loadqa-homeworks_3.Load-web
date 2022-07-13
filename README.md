@@ -21,3 +21,10 @@
 После запуска 3 контейнеров можно перейти на сайт в барузере по адресу http://localhost:8000
 Для доступа к панели администратоар сайта http://localhost:8000/admin
 Для доступа к phpadmin http://localhost:8081
+
+# Часто задаваемые вопросы:
+### Пытаюсь запустить на localhost приложение для тестирования. Но оно не запускается. Выполнила как сказано в задании - git clone https://github.com/mshegolev/congenial-potato.git,
+- cd congenial-potato, - cd cinema,
+- docker-compose up -d. 
+
+
