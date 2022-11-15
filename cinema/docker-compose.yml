@@ -1,25 +1,16 @@
 version: "3.7"
-# networks:
-#   load:
 
 services:
   web:
     container_name: cinema_web
     image: mshegolev/congenial-potato:v1.0
-    # build: 
-    #   context: ./
-    #   dockerfile: Dockerfile
+    build: 
+      context: ./
+      dockerfile: Dockerfile
     depends_on: 
       - db
-    # environment:
-    #   - ALLOW_OVERRIDE=true
-    volumes:
-      - ./www:/var/www/html/
     ports:
       - "8000:80"
-    # networks:
-    #   - load
-
 
   db:
     container_name: cinema_db
@@ -38,8 +29,6 @@ services:
       MYSQL_DATABASE: database
     ports:
       - "9906:3306"
-    # networks:
-    #   - load
   phpmyadmin:
     container_name: cinema_phpadmin
     image: phpmyadmin/phpmyadmin
@@ -50,5 +39,3 @@ services:
       - db
     ports:
       - '8081:80'
-    # networks:
-    #   - load
