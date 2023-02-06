@@ -23,8 +23,20 @@
 Для доступа к phpadmin http://localhost:8081
 
 # Часто задаваемые вопросы:
-### Пытаюсь запустить на localhost приложение для тестирования. Но оно не запускается. Выполнила как сказано в задании - git clone https://github.com/mshegolev/congenial-potato.git,
-- cd congenial-potato, - cd cinema,
-- docker-compose up -d. 
+##### Пытаюсь запустить на localhost приложение для тестирования. Но оно не запускается. Выполнила как сказано в задании - git clone https://github.com/mshegolev/congenial-potato.git,
+````
+cd congenial-potato
+cd cinema
+docker-compose up -d
+````
+##### После запуска контейнера получаю ошибку Array['errMessage'], что делать?
+1. Открыть http://localhost:8081/ логин admin пароль test
+2. Выбрать база данных database.
+2. Перейти на вкладку SQL.
+2. Открыть скрипт https://github.com/mshegolev/congenial-potato/blob/main/cinema/BD/id11870327_mysite.sql
+3. Скопировать данные из скрипта и вставить в окно SQL.
+4. Выполнить скрипт (нажать кнопку Вперет/Запустить в русской версии или run)
+5. Открыть сайт http://localhost:8000/client/index.php убедиться что доступен выбор фильмов.
+
 
 
