@@ -29,7 +29,7 @@ cd congenial-potato
 cd cinema
 docker-compose up -d
 ````
-##### После запуска контейнера получаю ошибку Array['errMessage'], что делать?
+##### После запуска контейнера открываю сайт http://localhost:8000/ получаю ошибку Array['errMessage'], что делать?
 1. Открыть http://localhost:8081/ логин admin пароль test
 2. Выбрать база данных database.
 2. Перейти на вкладку SQL.
