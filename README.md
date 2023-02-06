@@ -24,11 +24,12 @@
 
 # Часто задаваемые вопросы:
 ##### Пытаюсь запустить на localhost приложение для тестирования. Но оно не запускается. Выполнила как сказано в задании - git clone https://github.com/mshegolev/congenial-potato.git,
-````
-cd congenial-potato
-cd cinema
-docker-compose up -d
-````
+1. Убедиться что все контейнеры запущены выполнив команду docker ps. Если нет или запущено больше чем нужно то рекомендуется выключить все контейнеры и запустить только для cinema.
+```
+ docker stop $(docker ps -a | awk {'print $1'})
+```
+
+
 ##### После запуска контейнера открываю сайт http://localhost:8000/ получаю ошибку Array['errMessage'], что делать?
 1. Открыть http://localhost:8081/ логин admin пароль test
 2. Выбрать база данных database.
