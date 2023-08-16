@@ -13,6 +13,13 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+-- удаляем таблицы если созданы
+drop table `films`;
+drop table `halls`;
+drop table `sales`;
+drop table `seances`;
+drop table `users`;
+
 
 -- Создать таблицу `films`
 CREATE TABLE `films` (
