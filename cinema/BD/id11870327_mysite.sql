@@ -39,7 +39,7 @@ INSERT INTO `films` (`film_id`, `film_name`, `film_duration`, `film_description`
 
 -- Триггеры `films`
 DELIMITER $$
-CREATE TRIGGER `update_seances_film` BEFORE DELETE ON `films` FOR EACH ROW DELETE FROM `seances` WHERE `seance_filmid`=OLD.`film_id`
+CREATE TRIGGER IF NOT EXISTS `update_seances_film` BEFORE DELETE ON `films` FOR EACH ROW DELETE FROM `seances` WHERE `seance_filmid`=OLD.`film_id`
 $$
 DELIMITER ;
 
@@ -67,17 +67,17 @@ INSERT INTO `halls` (`hall_id`, `hall_name`, `hall_rows`, `hall_places`, `hall_c
 
 -- Триггеры `halls`
 DELIMITER $$
-CREATE TRIGGER `updateSales_deleteHall` AFTER DELETE ON `halls` FOR EACH ROW DELETE FROM `sales` WHERE `sale_hallid`=OLD.`hall_id`
+CREATE TRIGGER IF NOT EXISTS `updateSales_deleteHall` AFTER DELETE ON `halls` FOR EACH ROW DELETE FROM `sales` WHERE `sale_hallid`=OLD.`hall_id`
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `updateSales_updateHall` BEFORE UPDATE ON `halls` FOR EACH ROW if (NEW.`hall_config` <> OLD.`hall_config`) then
+CREATE TRIGGER IF NOT EXISTS `updateSales_updateHall` BEFORE UPDATE ON `halls` FOR EACH ROW if (NEW.`hall_config` <> OLD.`hall_config`) then
 DELETE FROM `sales` WHERE `sale_hallid`=OLD.`hall_id`;
 end if
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `updateSeances_deleteHall` BEFORE DELETE ON `halls` FOR EACH ROW DELETE FROM `seances` WHERE `seance_hallid`=OLD.`hall_id`
+CREATE TRIGGER IF NOT EXISTS `updateSeances_deleteHall` BEFORE DELETE ON `halls` FOR EACH ROW DELETE FROM `seances` WHERE `seance_hallid`=OLD.`hall_id`
 $$
 DELIMITER ;
 
@@ -115,7 +115,7 @@ INSERT INTO `seances` (`seance_id`, `seance_hallid`, `seance_filmid`, `seance_ti
 
 -- Триггеры `seances`
 DELIMITER $$
-CREATE TRIGGER `update_sales_seance` BEFORE DELETE ON `seances` FOR EACH ROW DELETE FROM `sales` WHERE `sale_seanceid`=OLD.`seance_id`
+CREATE TRIGGER IF NOT EXISTS `update_sales_seance` BEFORE DELETE ON `seances` FOR EACH ROW DELETE FROM `sales` WHERE `sale_seanceid`=OLD.`seance_id`
 $$
 DELIMITER ;
 
