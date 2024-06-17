@@ -1,0 +1,8 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1718602989584,276,1_Открытие главной страницы,200,OK,Thread Group 1-1,text,true,,5133,572,1,1,http://localhost:8000/client/index.php,268,0,30
+1718602989868,0,2_Выбор даты,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in authority at index 7: http://${BASE_URL_1:8000/client/scripts/selectSeance.php,Thread Group 1-1,text,false,,1215,0,1,1,http://${BASE_URL_1:8000/client/scripts/selectSeance.php,0,0,0
+1718602995655,12,3_Выбор времени сеанса,200,OK,Thread Group 1-1,text,true,,5069,623,1,1,http://localhost:8000/client/hall.php,12,0,2
+1718602995668,14,4_Бронирование места,200,OK,Thread Group 1-1,text,true,,338,10236,1,1,http://localhost:8000/client/scripts/reservation.php,14,0,0
+1718603002584,13,5_Получение кода бронирования,200,OK,Thread Group 1-1,text,true,,5069,626,1,1,http://localhost:8000/client/payment.php,13,0,4
+1718603006981,8,6_билет,200,OK,Thread Group 1-1,text,true,,338,636,1,1,http://localhost:8000/client/scripts/sale_save.php,8,0,0
+1718602989442,323,Test,,"Number of samples in transaction : 7, number of failing samples : 1",Thread Group 1-1,,false,,17162,12693,1,1,null,315,17224,36
